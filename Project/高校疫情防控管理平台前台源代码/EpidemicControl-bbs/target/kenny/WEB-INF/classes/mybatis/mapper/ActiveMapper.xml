@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.ActiveMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.Active">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="active_id" jdbcType="INTEGER" property="activeId" />
+    <result column="active_title" jdbcType="VARCHAR" property="activeTitle" />
+    <result column="active_start_date" jdbcType="TIMESTAMP" property="activeStartDate" />
+    <result column="active_end_date" jdbcType="TIMESTAMP" property="activeEndDate" />
+    <result column="active_view" jdbcType="INTEGER" property="activeView" />
+    <result column="active_pic_url" jdbcType="VARCHAR" property="activePicUrl" />
+    <result column="active_category_id" jdbcType="INTEGER" property="activeCategoryId" />
+    <result column="active_content" jdbcType="VARCHAR" property="activeContent" />
+    <result column="active_now_num" jdbcType="INTEGER" property="activeNowNum" />
+    <result column="active_max_num" jdbcType="INTEGER" property="activeMaxNum" />
+    <result column="start_sign" jdbcType="TIMESTAMP" property="startSign" />
+    <result column="end_sign" jdbcType="TIMESTAMP" property="endSign" />
+    <result column="active_is_cover" jdbcType="INTEGER" property="activeIsCover" />
+    <result column="active_address" jdbcType="VARCHAR" property="activeAddress" />
+  </resultMap>
+
+  <update id="updateActivity" parameterType="SystemActivityVO">
+    update active
+    <trim prefix="set" prefixOverrides=",">
+      <if test="activeTitle != null and activeTitle != ''">
+        ,active_title=#{activeTitle}
+      </if>
+      <if test="activeStartDate != null">
+        ,active_start_date=#{activeStartDate}
+      </if>
+      <if test="activeEndDate != null">
+        ,active_end_date=#{activeEndDate}
+      </if>
+      <if test="activePicUrl != null and activePicUrl != ''">
+        ,active_pic_url=#{activePicUrl}
+      </if>
+      <if test="activeCategoryId != null">
+        ,active_category_id=#{activeCategoryId}
+      </if>
+      <if test="activeContent != null and activeContent != ''">
+        ,active_content=#{activeContent}
+      </if>
+      <if test="activeMaxNum != null and activeMaxNum != ''">
+        ,active_max_num=#{activeMaxNum}
+      </if>
+      <if test="startSign != null">
+        ,start_sign=#{startSign}
+      </if>
+      <if test="endSign != null">
+        ,end_sign=#{endSign}
+      </if>
+      <if test="activeIsCover != null">
+        ,active_is_cover=#{activeIsCover}
+      </if>
+      <if test="activeAddress != null and activeAddress != ''">
+        ,active_address=#{activeAddress}
+      </if>
+    </trim>
+    where active_id=#{activeId};
+  </update>
+
+  <insert id="insertActivity" parameterType="SystemActivityVO">
+    insert into active values(default, #{activeTitle}, #{activeStartDate}, #{activeEndDate},
+                    default, #{activePicUrl}, #{activeCategoryId}, #{activeContent}, default,
+                            #{activeMaxNum}, #{startSign}, #{endSign}, #{activeIsCover}, #{activeAddress});
+  </insert>
+
+  <delete id="deleteByActiveId" parameterType="int">
+    delete from active where active_id=#{activeId};
+  </delete>
+
+  <select id="selectByRight" resultMap="BaseResultMap" resultType="list">
+    select * from active where active_is_cover=#{right} order by start_sign desc
+  </select>
+
+  <select id="selectByActiveId" resultMap="BaseResultMap">
+    select * from active where active_id=#{activeId};
+  </select>
+
+  <select id="selectByCondition" resultType="list" resultMap="BaseResultMap" parameterType="SystemActivityVO">
+    select * from active
+    <trim prefix="where" prefixOverrides="and">
+      <if test="activeTitle != null and activeTitle != ''">
+        and active_title like concat('%', #{activeTitle}, '%')
+      </if>
+      <if test="activeCategoryId != null and activeCategoryId != ''">
+        and active_category_id = #{activeCategoryId}
+      </if>
+      <if test="activeStatusId == 1">
+        and now() &lt; start_sign
+      </if>
+      <if test="activeStatusId == 2">
+        and start_sign &lt; now() and end_sign &gt; now()
+      </if>
+      <if test="activeStatusId == 3">
+        and end_sign &lt; now() and active_start_date &gt; now()
+      </if>
+      <if test="activeStatusId == 4">
+        and active_start_date &lt; now() and active_end_date &gt; now()
+      </if>
+      <if test="activeStatusId == 5">
+        and active_end_date &lt; now()
+      </if>
+    </trim>
+    order by start_sign desc
+  </select>
+
+  <update id="addViewByActiveId" parameterType="int">
+    update active set active_view=active_view+1 where active_id=#{activeId};
+  </update>
+
+  <update id="addUserCountByActiveId" parameterType="int">
+    update active set active_now_num=active_now_num+1 where active_id=#{activeId};
+  </update>
+
+</mapper>

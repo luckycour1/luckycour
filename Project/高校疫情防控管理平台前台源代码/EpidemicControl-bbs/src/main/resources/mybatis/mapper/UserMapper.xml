@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_num" jdbcType="VARCHAR" property="userNum" />
+    <result column="user_level" jdbcType="INTEGER" property="userLevel" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="header_icon" jdbcType="VARCHAR" property="headerIcon" />
+    <result column="user_sex" jdbcType="INTEGER" property="userSex" />
+  </resultMap>
+
+  <select id="selectOne" resultMap="BaseResultMap">
+    select * from user
+    <trim prefix="where" prefixOverrides="and">
+      <if test="userId != null and userId != ''">
+        and user_id = #{userId}
+      </if>
+      <if test="userNum != null and userNum != ''">
+        and user_num = #{userNum}
+      </if>
+      <if test="userPwd != null and userPwd != ''">
+        and user_pwd = #{userPwd}
+      </if>
+    </trim>
+  </select>
+
+  <insert id="insert" parameterType="User">
+    insert into user (user_id, user_name, user_pwd, user_num, user_level, user_phone, class_id) values
+    (default, #{userName}, #{userPwd}, #{userNum},  #{userLevel}, #{userPhone}, #{classId});
+  </insert>
+
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    select * from user where user_id=#{userId};
+  </select>
+
+  <update id="updateUser" parameterType="user">
+    update user set user_name=#{userName}, user_phone=#{userPhone}, user_pwd=#{userPwd}, class_id=#{classId}, header_icon=#{headerIcon},
+                    birthday=#{birthday}, user_sex=#{userSex} where user_id=#{userId};
+  </update>
+
+  <select id="selectUserCount" resultType="int">
+    select count(*) from user;
+  </select>
+
+  <select id="selectUserByCondition" resultMap="BaseResultMap" parameterType="User" resultType="list">
+    select * from user
+    <trim prefix="where" prefixOverrides="or">
+      <if test="userNum != null and userNum != ''">
+        or user_num like concat('%', #{userNum}, '%')
+      </if>
+      <if test="userPhone != null and userPhone != ''">
+        or user_phone like concat('%', #{userPhone}, '%')
+      </if>
+      <if test="userName != null and userName != ''">
+        or user_name like concat('%', #{userName}, '%')
+      </if>
+    </trim>
+  </select>
+
+  <select id="selectUserByActiveIdAndCondition" resultMap="BaseResultMap" resultType="list" parameterType="SystemActivityUser">
+    select * from user where  user_id in (select user_id from active_user where active_id=#{activeId})
+    <if test="userNum != null and userNum != ''">
+      and user_num like concat('%', #{userNum}, '%')
+    </if>
+    <if test="userPhone != null and userPhone != ''">
+      and user_phone like concat('%', #{userPhone}, '%')
+    </if>
+    <if test="userName != null and userName != ''">
+      and user_name like concat('%', #{userName}, '%')
+    </if>
+
+  </select>
+
+
+  <delete id="deleteByUserId" parameterType="int">
+    delete user where user_id=#{userId}
+  </delete>
+
+  <select id="selectAll" resultMap="BaseResultMap" resultType="list">
+    select * from user
+  </select>
+
+  <select id="selectNotClick" resultType="list" resultMap="BaseResultMap">
+    select * from user where user_id not in (select user_id from click_card where TO_DAYS(cc_date) = TO_DAYS(#{date}))
+  </select>
+</mapper>

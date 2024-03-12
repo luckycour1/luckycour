@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.HealthMentalMapper">
+    <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.HealthMental">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="hm_id" jdbcType="INTEGER" property="hmId" />
+        <result column="hm_category" jdbcType="INTEGER" property="hmCategory" />
+        <result column="hm_title" jdbcType="VARCHAR" property="hmTitle" />
+        <result column="hm_qa" jdbcType="VARCHAR" property="hmQa" />
+        <result column="hm_qb" jdbcType="VARCHAR" property="hmQb" />
+        <result column="hm_qc" jdbcType="VARCHAR" property="hmQc" />
+        <result column="hm_qd" jdbcType="VARCHAR" property="hmQd" />
+        <result column="hm_qe" jdbcType="VARCHAR" property="hmQe" />
+        <result column="hm_qf" jdbcType="VARCHAR" property="hmQf" />
+    </resultMap>
+
+
+    <select id="selectByCategoryAndCount" resultType="list" resultMap="BaseResultMap">
+        SELECT * FROM `health_mental` where hm_category=#{category} ORDER BY  RAND() LIMIT #{count};
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT * FROM `health_mental` where hm_id=#{hmId};
+    </select>
+
+
+</mapper>

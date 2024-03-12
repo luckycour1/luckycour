@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+    <typeAliases>
+        <package name="com.hut.kenny.domain.entity"/>
+        <package name="com.hut.kenny.domain.vo"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 对应数据库类型 -->
+            <property name="helperDialect" value="mysql"/>
+            <!-- 页码为0时，默认查询全部 -->
+            <property name="pageSizeZero" value="true"/>
+            <!--
+                分页参数合理化：
+                页码数字小于0时，默认查询第一页； 页码大于总页数时，默认查询最后一页
+            -->
+            <property name="reasonable" value="value"/>
+        </plugin>
+    </plugins>
+</configuration>

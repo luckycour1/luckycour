@@ -1,0 +1,146 @@
+body {
+    background-color: rgb(244,244,244);
+}
+
+section .content>div {
+    margin-top: 16vh;
+    position: relative;
+}
+
+section .content>div>img {
+    width: 16vw;
+    position: absolute;
+    top: -14vh;
+    left: -10vw;
+    z-index: 99;
+}
+
+section .content .nav {
+    width: 100%;
+    height: 48vh;
+
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+section .content .nav:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .12;
+    /*z-index: 99;*/
+    background-color: black;
+    /*background-image: url("../image/activity/overlay.png");*/
+}
+
+section .content .nav div {
+    margin-left: 2vw;
+    z-index: 99;
+    margin-bottom: 1.6vh;
+}
+
+section .content .nav .title {
+    color: white;
+    font-weight: bold;
+    font-size: 2.6rem;
+    letter-spacing: .2rem;
+
+}
+
+section .content .nav .position {
+    color: white;
+    font-family: 宋体;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    font-weight: bold;
+}
+
+section .content .act-con{
+    width: 100%;
+    background-color: white;
+    /*height: 200vh;*/
+    margin-bottom: 6vh;
+    margin-top: 4vh;
+    padding: 1.6vh 1.4vw;
+}
+
+section .content .act-con .intro {
+    display: inline-block;
+    line-height: 32px;
+    /*margin-right: 30px;*/
+    cursor: pointer;
+    border-bottom: 2px solid #f2bb64;
+    color: #f2bb64;
+}
+
+section .content .act-con .act-intro .image img{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 10px 10px 0;
+}
+
+section .content .act-con .act-intro .image span{
+    font-size: 12px;
+    font-family: "PingFang SC", Microsoft Yahei In-Bold, Microsoft Yahei, SimHei, Apple LiGothic Medium;
+    color: #222222;
+    line-height: 60px;
+    font-weight: 700;
+}
+
+section .content .act-con .act-intro>div:nth-child(2) {
+    padding: 0 20px;
+    border: 1px solid #efefef;
+    border-radius: 3px;
+}
+
+section .content .act-con .act-intro>div:nth-child(2) p{
+    line-height: 40px;
+    font-size: 12px;
+    font-family: "PingFang SC", Microsoft Yahei In-Bold, Microsoft Yahei, SimHei, Apple LiGothic Medium;
+    color: #222222;
+}
+
+section .content .act-con .button {
+    width: 100%;
+    margin: 2vh 0;
+}
+
+section .content .act-con .button span {
+    /*background-color: rgb(242,187,100);*/
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 40px;
+    font-size: 2rem;
+    background: #f2bb64;
+    vertical-align: middle;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+section .content .act-con .button span:hover {
+    background: #f39800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

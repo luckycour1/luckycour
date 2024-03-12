@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.FeedbackMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.Feedback">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="fd_id" jdbcType="INTEGER" property="fdId" />
+    <result column="fd_category_id" jdbcType="INTEGER" property="fdCategoryId" />
+    <result column="fd_content" jdbcType="VARCHAR" property="fdContent" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="fd_title" jdbcType="VARCHAR" property="fdTitle" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="fd_date" jdbcType="TIMESTAMP" property="fdDate" />
+    <result column="fd_status" jdbcType="INTEGER" property="fdStatus" />
+    <result column="fd_pic_url" jdbcType="VARCHAR" property="fdPicUrl" />
+  </resultMap>
+
+  <insert id="insertFeedback" parameterType="Feedback">
+    insert into feedback values(default, #{fdCategoryId}, #{fdContent}, #{userId}, #{fdTitle}, #{userPhone}, default, default, #{fdPicUrl});
+  </insert>
+
+  <select id="selectAllByUserId" resultMap="BaseResultMap" resultType="list">
+    select * from feedback
+    <if test="userId != 0">
+      where user_id=#{userId}
+    </if> order by fd_date desc
+  </select>
+
+  <select id="selectByFdId" resultMap="BaseResultMap">
+    select * from feedback where fd_id=#{fdId};
+  </select>
+
+  <update id="revokeById" parameterType="int">
+    update feedback set fd_status=3 where fd_id=#{fdId};
+  </update>
+
+  <select id="selectTodayCount" resultType="int">
+    select count(*) from feedback where TO_DAYS(fd_date) = TO_DAYS(now())
+  </select>
+
+  <select id="selectTodayCountByCategory" resultType="int">
+    select count(*) from feedback
+    where fd_category_id=#{category} and TO_DAYS(fd_date) = TO_DAYS(now());
+  </select>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" resultType="list">
+    select * from feedback
+    <trim prefix="where" prefixOverrides="and">
+        <if test="fdDate != null">
+          and TO_DAYS(fd_date) = TO_DAYS(#{fdDate})
+        </if>
+        <if test="fdCategoryId != null and fdCategoryId != ''">
+          and fd_category_id = #{fdCategoryId}
+        </if>
+        <if test="fdStatus != null">
+          and fd_status = #{fdStatus}
+        </if>
+    </trim>
+    order by fd_date desc
+  </select>
+
+  <update id="updateStatusByIdAndStatusId" parameterType="int">
+    update feedback set fd_status=#{statusId} where fd_id=#{fdId};
+  </update>
+</mapper>

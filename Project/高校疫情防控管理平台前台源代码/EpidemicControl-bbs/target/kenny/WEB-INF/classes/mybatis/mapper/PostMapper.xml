@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.PostMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.Post">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="post_title" jdbcType="VARCHAR" property="postTitle" />
+    <result column="post_date" jdbcType="TIMESTAMP" property="postDate" />
+    <result column="post_view" jdbcType="INTEGER" property="postView" />
+    <result column="post_url" jdbcType="VARCHAR" property="postUrl" />
+    <result column="post_category" jdbcType="INTEGER" property="postCategory" />
+  </resultMap>
+
+  <select id="selectByPostId" resultMap="BaseResultMap">
+    select * from post where post_id=#{postId};
+  </select>
+
+  <select id="selectAllByCategory" resultMap="BaseResultMap" resultType="list">
+    select * from post where post_category=#{category} order by post_date desc
+  </select>
+
+  <update id="updatePostViewByPostId" parameterType="int">
+    update post set post_view=post_view+1 where post_id=#{postId};
+  </update>
+
+  <update id="updateByPost" parameterType="Post">
+    update post
+    <trim prefix="set" prefixOverrides=",">
+      <if test="postTitle != null and postTitle != ''">
+        ,post_title=#{postTitle}
+      </if>
+      <if test="postCategory == 1 || postCategory == 2">
+        ,post_category=#{postCategory}
+      </if>
+      <if test="postUrl != null">
+        ,post_url=#{postUrl}
+      </if>
+    </trim>
+    where post_id=#{postId};
+  </update>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="SystemPostVO" resultType="list">
+    select * from post
+    <trim prefix="where" prefixOverrides="and">
+      <if test="postTitle != null and postTitle != ''">
+        and post_title like concat('%', #{postTitle}, '%')
+      </if>
+      <if test="postCategory == 1 || postCategory == 2">
+        and post_category = #{postCategory}
+      </if>
+      <if test="postDate != null">
+        and TO_DAYS(post_date) = TO_DAYS(#{postDate})
+      </if>
+    </trim>
+    order by post_date desc
+  </select>
+
+  <delete id="deleteById" parameterType="int">
+    delete from post where post_id=#{postId};
+  </delete>
+
+  <insert id="insertPost" parameterType="Post">
+    insert into post (post_id, post_title, post_date, post_view, post_url, post_category)
+    values(default, #{postTitle}, default, default, #{postUrl}, #{postCategory});
+  </insert>
+
+
+</mapper>

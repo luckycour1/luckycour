@@ -1,0 +1,70 @@
+.header .left {
+    /*width: 60%;*/
+}
+
+.header  img {
+    vertical-align: bottom;
+    margin: 12px 40px 0;
+    width: 6vw;
+}
+
+.header a {
+    display: inline-block;
+    color: rgb(62,150,242);
+    font-size: 2rem;
+    letter-spacing: .3rem;
+    margin-bottom: 2px;
+    transition: all ease-in-out .3s;
+}
+
+.header .left a {
+    margin-right: 2vw;
+}
+
+.header  a:hover {
+    color: rgb(0, 127, 254);
+}
+
+/*.header .right {*/
+/*    display: flex;*/
+/*    height: 88px;*/
+/*    align-items: flex-end;*/
+/*    margin-bottom: 4px;*/
+/*}*/
+
+/*.header  a {*/
+/*    !*min-width: 60px;*!*/
+/*    font-size: 1.6rem;*/
+/*    font-family: 宋体;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: .2rem;*/
+/*    border-radius: 20px;*/
+/*    transition: all ease-in-out .3s;*/
+/*    border: rgb(48,160,240) solid 1px;*/
+/*}*/
+
+/*.header  a span {*/
+/*    margin: 4px 18px;*/
+/*}*/
+
+/*.header .right a.login {*/
+/*    background-color: rgb(48,160,240);*/
+/*    color: white;*/
+/*    margin: 0 12px;*/
+/*}*/
+
+/*.header .right a.login:hover {*/
+/*    background-color: rgb(255,255,255);*/
+/*    color: rgb(48,160,240);*/
+/*}*/
+
+/*.header .right a.register {*/
+/*    background-color: rgb(255,255,255);*/
+/*    color: rgb(48,160,240);*/
+/*    margin-right: 24px;*/
+/*}*/
+
+/*.header .right a.register:hover {*/
+/*    background-color: rgb(48,160,240);*/
+/*    color: white;*/
+/*}*/

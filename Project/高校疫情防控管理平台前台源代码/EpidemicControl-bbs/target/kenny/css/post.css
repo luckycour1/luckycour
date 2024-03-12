@@ -1,0 +1,54 @@
+.content {
+    /*height: 100vh;*/
+    width: 100%;
+    background-image: url("../image/post/huzm.png");
+    background-size: 100% 68vh;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.content .container {
+    margin-top: 8vh;
+}
+
+.content .container .title {
+    font-size: 3.2rem;
+    color: rgb(32,57,141);
+    font-weight: bold;
+    letter-spacing: .4rem;
+    margin-bottom: 2vh;
+}
+
+.content .container .nav {
+    background-color: white;
+}
+
+.content .container .nav .item {
+    display: flex;
+}
+
+.content .container .nav .item img {
+    width: 16px;
+    margin-top: -2px;
+}
+
+.content .container .nav .item{
+    /*width: 100%;*/
+    font-size: 1.4rem;
+    font-family: "微软雅黑 Light";
+    color: black;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    padding: 1vh 1vw;
+    border-bottom: 2px dotted rgb(149,149,147);
+}
+
+
+
+
+
+
+
+
+
+

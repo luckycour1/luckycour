@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.ActiveCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.ActiveCategory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="active_category_id" jdbcType="INTEGER" property="activeCategoryId" />
+    <result column="active_category_content" jdbcType="VARCHAR" property="activeCategoryContent" />
+  </resultMap>
+
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="int">
+    select * from active_category where active_category_id=#{categoryId};
+  </select>
+
+  <select id="selectAllCategory" resultMap="BaseResultMap" resultType="list">
+    select * from active_category;
+  </select>
+</mapper>

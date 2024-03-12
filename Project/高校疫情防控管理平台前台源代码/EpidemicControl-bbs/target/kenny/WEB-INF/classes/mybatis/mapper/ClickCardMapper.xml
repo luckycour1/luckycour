@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.ClickCardMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.ClickCard">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cc_id" jdbcType="INTEGER" property="ccId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="cc_date" jdbcType="TIMESTAMP" property="ccDate" />
+    <result column="cc_temperature" jdbcType="REAL" property="ccTemperature" />
+    <result column="symptom_id" jdbcType="INTEGER" property="symptomId" />
+    <result column="cc_is_godanger" jdbcType="INTEGER" property="ccIsGodanger" />
+    <result column="cc_is_vacc" jdbcType="INTEGER" property="ccIsVacc" />
+    <result column="cc_card" jdbcType="INTEGER" property="ccCard" />
+    <result column="cc_address" jdbcType="VARCHAR" property="ccAddress" />
+    <result column="cc_is_gap" jdbcType="INTEGER" property="ccIsGap" />
+  </resultMap>
+
+  <insert id="insertClickCard" parameterType="ClickCard">
+    insert into click_card values
+    (default, #{userId}, default, #{ccTemperature}, #{symptomId}, #{ccIsGodanger}, #{ccIsVacc}, #{ccCard}, #{ccAddress}, #{ccIsGap});
+  </insert>
+
+  <select id="selectTodayCountByUserId" resultType="int">
+    select count(*) from click_card where date(cc_date) = curdate() and user_id=#{userId};
+  </select>
+
+  <select id="selectNormalCount" resultType="int">
+      select count(*) from click_card where cc_temperature &gt; 35.8 and cc_temperature &lt; 37.4
+      and cc_is_godanger=0 and symptom_id=1 and cc_card=0 and
+      (cc_address like '%天元区%' or cc_address like '%湖南工业大学%')
+      and TO_DAYS(cc_date) = TO_DAYS(now());
+    </select>
+
+  <select id="selectExceptionCount" resultType="int">
+    select count(*) from click_card where (cc_temperature &lt; 35.8 or cc_temperature &gt; 37.4
+    or cc_is_godanger!=0 or symptom_id!=1 or cc_card!=0 or
+    (cc_address not like '%天元区%' and cc_address not like '%湖南工业大学%'))
+    and TO_DAYS(cc_date) = TO_DAYS(now())
+  </select>
+
+  <select id="selectNormalByDate" resultMap="BaseResultMap" resultType="list">
+    select * from click_card where cc_temperature &gt; 35.8 and cc_temperature &lt; 37.4
+        and cc_is_godanger=0 and symptom_id=1 and cc_card=0 and
+      (cc_address like '%天元区%' or cc_address like '%湖南工业大学%')
+            and TO_DAYS(cc_date) = TO_DAYS(#{date})
+  </select>
+
+  <select id="selectExceptionByDate" resultMap="BaseResultMap" resultType="list">
+    select * from click_card where (cc_temperature &lt; 35.8 or cc_temperature &gt; 37.4
+      or cc_is_godanger!=0 or symptom_id!=1 or cc_card!=0 or
+    (cc_address not like '%天元区%' and cc_address not like '%湖南工业大学%'))
+                                      and TO_DAYS(cc_date) = TO_DAYS(now())
+  </select>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" resultType="list" parameterType="ClickCard">
+    select * from click_card
+    <trim prefix="where" prefixOverrides="and">
+      <if test="symptomId != null and symptomId != ''">
+        and symptom_id=#{symptomId}
+      </if>
+      <if test="ccDate != null">
+        and TO_DAYS(cc_date) = TO_DAYS(#{ccDate})
+      </if>
+      <if test="ccIsGodanger != null and ccIsGodanger != ''">
+        and cc_is_godanger=#{ccIsGodanger}
+      </if>
+      <if test="ccIsVacc != null and ccIsVacc != ''">
+        and cc_is_vacc=#{ccIsVacc}
+      </if>
+      <if test="ccCard != null and ccCard != ''">
+        and cc_card=#{ccCard}
+      </if>
+      <if test="ccIsGap != null and ccIsGap != ''">
+        and cc_id_gap=#{ccIsGap}
+      </if>
+    </trim>
+  </select>
+</mapper>

@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: 微软雅黑;
+    letter-spacing: 0.1em;
+    max-width: 100vw;
+    /*background-color: rgb(233,234,237);*/
+    /*width: 100vw;*/
+    /*min-height: 300vh;*/
+    /*background-image: url("../images/index/background.png");*/
+    /*background-attachment: fixed;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*position: relative;*/
+    /*margin: 0 auto;*/
+}
+
+body:before {
+    /*content: '';*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background-image: url("../images/overlay.png");*/
+    /*background-color: rgba(250, 214, 137, 0.24);*/
+    /*z-index: -1;*/
+}
+
+
+body a{
+    list-style: none;
+    text-decoration: none;
+    /*color: white;*/
+}
+
+ul, li {
+    padding:0;
+    margin:0;
+    list-style:none
+}
+
+a {
+    text-decoration: none; /* 去除默认的下划线 */
+    outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
+    color: #000;	/* 去除默认的颜色和点击后变化的颜色 */
+}
+
+a:hover {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+a:link {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+img.image:hover {
+    transition: all 0.5s;
+    transform: scale(1.2);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.red {
+    border: red 1px dotted;
+}
+
+input {
+    border: none;
+    outline: none;
+    letter-spacing: .2rem;
+}
+
+
+select {
+    /*将默认的select选择框样式清除*/
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+select:focus { outline: none; }
+
+
+/************** 动画 ***************/
+/* All delay classes will take 2x longer to start */
+:root {
+    --animate-delay: .15s;
+}
+
+
+
+
+.niceOn img {
+    animation: nice 0.3s;
+}
+
+@keyframes nice {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(2);
+        top: -5px;
+        margin-right: 4px;
+    }
+
+    30% {
+        transform: scale(1.58);
+        top: -3px;
+        margin-right: 3px;
+    }
+
+    50% {
+        transform: scale(1.28);
+        top: -2px;
+        margin-right: 2px;
+    }
+
+    80% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+/*!* 标签 *!*/
+/*.tage {*/
+/*    display: inline-block;*/
+/*    background: #F95;*/
+/*    color: #FFF;*/
+/*    padding: 1px 3px;*/
+/*    margin: 2px 2px 2px 20px;*/
+/*    font: normal 16px sans-serif;*/
+/*    position: relative;*/
+/*    cursor: default;*/
+/*    box-shadow: 1px 1px 0 rgba(0,0,0,.2);*/
+/*    -webkit-transform-origin: 0% 50%;*/
+/*    !*-webkit-animation: swing 1s;*!*/
+/*    !*-o-animation: swing 1s;*!*/
+/*    !*animation: swing 1s;*!*/
+/*}*/
+
+/*.tage:before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 0;*/
+/*    display: inline-block;*/
+/*    background: inherit;*/
+/*    height: 22px;*/
+/*    border: 8px solid #fafafa;*/
+/*    border-right-color: transparent;*/
+/*    -webkit-border-radius: 8px 0 0 8px;*/
+/*    -moz-border-radius: 8px 0 0 8px;*/
+/*    border-radius: 8px 0 0 8px;*/
+/*    left: -16px;*/
+/*    top: 0;*/
+/*}*/
+
+/*.tage span {*/
+/*    display: inline-block;*/
+/*    margin-left: 2px;*/
+/*}*/
+
+/*.tage:after {*/
+/*    content: "";*/
+/*    width: 5px;*/
+/*    height: 5px;*/
+/*    -webkit-border-radius: 2px;*/
+/*    -moz-border-radius: 2px;*/
+/*    border-radius: 50%;*/
+/*    background: #FFF;*/
+/*    position: absolute;*/
+/*    left: -4px;*/
+/*    top: 8px;*/
+/*    box-shadow: inset 1px 1px 0 #CCC;*/
+/*}*/
+
+.fadeInUp {
+    animation: fadeInUp 2s;
+}

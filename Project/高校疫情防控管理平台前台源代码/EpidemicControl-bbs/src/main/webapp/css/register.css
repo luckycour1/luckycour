@@ -1,0 +1,170 @@
+.container {
+    width: 100vw;
+    background-image: url("../image/login/background.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    height: 100vh;
+}
+
+.container .center {
+    width: 88%;
+    height: 86%;
+}
+
+.container .left {
+    width: 48%;
+}
+
+.container .left .logo {
+    margin-top: -1%;
+    margin-left: 4%;
+}
+
+.container .left .portrait {
+    width: 100%;
+    margin-top: 2.4%;
+}
+
+.container .right {
+    width: 48%;
+    height: 100%;
+    padding-bottom: 6%;
+    margin-right: 3%;
+}
+
+.container .right>div {
+    height: 84%;
+    width: 58%;
+}
+
+.container .right .title {
+    font-size: 3.2rem;
+    letter-spacing: .4rem;
+    font-family: 宋体;
+    color: rgb(48,126,248);
+    font-weight: bold;
+}
+
+/*.container .right>div.input {*/
+/*    max-height: 6%;*/
+/*}*/
+
+.container .right .input {
+    width: 100%;
+    border: 2px solid rgb(172,172,173);
+    padding: 4px 0 4px 10px;
+    border-radius: 12px;
+}
+
+.container .right .input img{
+    /*margin-top: -4px;*/
+    vertical-align: bottom;
+    margin-right: 4px;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 2px;
+}
+
+.container .right .input input {
+    width: 80%;
+    background-color: rgb(241,247,254);
+    font-size: 1.6rem;
+    line-height: 2rem;
+    vertical-align: center;
+    /*padding-bottom: 4px;*/
+    /*margin-bottom: -18px;*/
+}
+
+.container .right .button {
+    width: 80%;
+    background-color: rgb(73,103,242);
+    height: 58px;
+    border-radius: 36px;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.container .right .button:hover {
+    background-color: rgb(0, 44, 243);
+}
+
+.container .right .button span{
+    color: whitesmoke;
+    font-family: 宋体;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin: 0 10%;
+}
+
+.container .right .code {
+    width: 100%;
+    /*max-height: 8%;*/
+    /*clear: both;*/
+    display: flex;
+    max-height: 36px;
+    /*overflow: hidden;*/
+}
+
+.container .right .code #canvas {
+    width: 28%;
+    /*height: 38px;*/
+    background-color: rgb(241,247,254);
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 12px;
+    box-sizing: border-box;
+}
+
+/* 下拉菜单 */
+.dropdowns {
+    position: absolute;
+    width: 76%;
+    height: 132px;
+    background-color: rgb(241,247,254);
+    transition: all ease-in-out .3s;
+    top: calc(100% + 6px);
+    border-radius: 4px;
+    overflow: hidden;
+    border: solid 2px rgb(211, 212, 215);
+    box-shadow:  5px 5px 16px #b2b7bc,
+    -5px -5px 16px #ffffff;
+    display: none;
+    z-index: 999;
+}
+
+.dropdowns .scroll {
+    overflow-y: scroll;
+    width: 120%;
+    height: 100%;
+}
+
+.dropdowns .scroll p {
+    cursor: pointer;
+    width: 100%;
+    padding: 4px 0 0 4px;
+    font-size: 1.4rem;
+    transition: all ease-in-out .3s;
+    /*border-bottom: 1px solid rgb(211, 212, 215);*/
+}
+
+.dropdowns .scroll p:hover {
+    background-color: #cecece;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

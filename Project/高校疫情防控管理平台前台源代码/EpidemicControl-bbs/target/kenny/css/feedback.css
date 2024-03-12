@@ -1,0 +1,58 @@
+section .content {
+    margin-top: 4vh;
+}
+
+section .content>div img {
+    width: 88%;
+}
+
+
+section .content .content-table {
+    /*height: 40vh;*/
+    min-height: 40vh;
+}
+
+section .content .button {
+    width: 8vw;
+    height: 6vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.68rem;
+    letter-spacing: .2rem;
+    background-color: rgb(202,221,255);
+    border-radius: 18px;
+    margin-bottom: 3vh;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+section .content .button:hover {
+    background-color: rgb(104, 165, 246);
+}
+
+section .content .content-table .title {
+    width: 20vw;
+    padding: 0;
+    line-height: 40px;
+    overflow: hidden;
+    /*border: none;*/
+
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+section .content .content-table .title span {
+    margin-left: .8rem;
+}
+
+section .content .content-table .title:hover {
+    color: #66afe9;
+}
+
+
+
+
+
+
+
+

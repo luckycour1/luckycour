@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(244, 244, 244);
+}
+
+.top {
+    background-color: white;
+    /*height: 8vh;*/
+    width: 98%;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+    padding: 2vh 2vw;
+}
+
+.top>div{
+    /*width: 38%;*/
+}
+
+body .top>div input.input {
+    width: 20vw;
+}
+
+a {
+    text-decoration: none; /* 去除默认的下划线 */
+    outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
+    color: #000;	/* 去除默认的颜色和点击后变化的颜色 */
+}
+
+a:hover {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+a:link {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+
+
+
+
+
+
+
+
+

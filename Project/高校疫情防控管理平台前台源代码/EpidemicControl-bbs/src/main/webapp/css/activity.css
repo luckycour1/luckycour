@@ -1,0 +1,163 @@
+section .activity-list {
+    /*height: 200vh;*/
+}
+
+section .activity-list .activity-item {
+    padding: 4vh 2vw;
+    border: 1px solid #eee;
+    margin: 0 1vw 3vh;
+    transition: all .3s ease-in-out;
+}
+
+section .activity-list .activity-item:hover {
+    box-shadow: 0 0 10px 12px rgb(245,245,245);
+}
+
+section .activity-list .activity-item:hover img {
+    transform: scale(1.2);
+}
+
+section .activity-list .activity-item>div {
+    display: flex;
+}
+
+section .activity-list .activity-item>div>a {
+    margin-right: 1.4vw;
+    /*width: 22vw;*/
+    height: 26vh;
+    overflow: hidden;
+    position: relative;
+}
+
+section .activity-list .activity-item>div>a .status {
+    background: rgba(21, 144, 242, 0.8);
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    border-radius: 2px;
+    top: 1.6vh;
+    left: .6vw;
+    opacity: .9;
+}
+
+section .activity-list .activity-item>div>a .end {
+    background-color: rgb(168,167,166);
+}
+
+section .activity-list .activity-item>div>a .prepare {
+    background-color: rgb(51,196,129);
+}
+
+section .activity-list .activity-item>div>a .status span {
+    font-size: 12px;
+    height: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 22px;
+}
+
+section .activity-list .activity-item img {
+    width: 12vw;
+    height: 26vh;
+    transition: all .3s ease-in-out;
+}
+
+section .activity-list .activity-item .content {
+    height: 24vh;
+}
+
+section .activity-list .activity-item .content a,
+section .activity-list .activity-item .content span{
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+    font-family: "PingFang SC", Microsoft Yahei In-Bold, Microsoft Yahei, SimHei, Apple LiGothic Medium;
+    color: #222222;
+}
+
+section .activity-list .activity-item .content .category {
+    color: #999;
+    margin-bottom: 2vh;
+    position: relative;
+}
+
+section .activity-list .activity-item .content .title {
+    margin-bottom: 1.8vh;
+    color: #f2bb64;
+    font-size: 14px;
+}
+
+section .activity-list .activity-item .content .category:BEFORE{
+    content: "";
+    position: absolute;
+    width: 3.6vw;
+    border-bottom: 2px solid #eee;
+    left: 0;
+    top: -2vh;
+}
+
+section .activity-list .activity-item .content span:nth-last-child(1) {
+    margin-bottom: 2.4vh;
+}
+
+section .activity-list .activity-item>div:nth-child(2) {
+    width: 100%;
+}
+
+section .activity-list .activity-item>div:nth-child(2) span {
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    font-family: "PingFang SC", Microsoft Yahei In-Bold, Microsoft Yahei, SimHei, Apple LiGothic Medium;
+    color: #222222;
+}
+
+section {
+    position: relative;
+}
+
+.me {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: rgb(242,187,100);
+    color: white;
+    position: fixed;
+    left: 91vw;
+    top: 36vh;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+    font-size: 1.6rem;
+}
+
+.me:hover {
+    transform: scale(1.1);
+    background-color: rgb(246, 173, 12);
+}
+
+
+section .table .title {
+    width: 300px;
+    padding: 0;
+    line-height: 40px;
+    overflow: hidden;
+    /*border: none;*/
+
+    cursor: pointer;
+}
+
+
+section .table .title a {
+    margin-left: .8rem;
+    transition: all ease-in-out .3s;
+}
+
+
+section .table .title a:hover {
+    color: #66afe9;
+}
+
+
+
+
+

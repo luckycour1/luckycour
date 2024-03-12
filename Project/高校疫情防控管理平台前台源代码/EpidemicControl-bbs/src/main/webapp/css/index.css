@@ -1,0 +1,364 @@
+/************ 头部导航栏开始 ****************/
+.header .left {
+    width: 50%;
+}
+
+.header  img {
+    vertical-align: bottom;
+    margin: 12px 40px 0;
+    width: 6vw;
+}
+
+.header  a {
+    display: inline-block;
+    color: rgb(62,150,242);
+    font-size: 2rem;
+    letter-spacing: .3rem;
+    margin-bottom: 2px;
+    transition: all ease-in-out .3s;
+}
+
+.header  a:hover {
+    color: rgb(0, 127, 254);
+}
+
+/************* 头部导航栏结束 *****************/
+/************* 主内容开始 *****************/
+
+.content {
+    width: 100%;
+    margin-bottom: 10vh;
+}
+
+.content .nav-big {
+    height: 68vh;
+    width: 100%;
+    background-color: rgb(232,241,248);
+    margin: 0;
+}
+
+.content .nav-big>div {
+    height: 68%;
+}
+
+.content .nav-big .top {
+    height: 100%;
+}
+
+.content .nav-big .top .left {
+    width: 38%;
+    height: 90%;
+}
+
+.content .nav-big .top .left span {
+    color: rgb(132,132,132);
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    width: 100%;
+}
+
+.content .nav-big .top img {
+    width: 100%;
+    margin-top: 12%;
+}
+
+.content .nav-big .top .right {
+    margin-top: -2%;
+    width: 34%;
+    height: 100%;
+}
+
+.content .nav-big .right img {
+    width: 100%;
+}
+
+.content .nav-big .bottom>div {
+    position: relative;
+    margin-top: 2%;
+    background-color: white;
+    padding: 24px 0;
+    width: 22%;
+    border-radius: 32px;
+    box-shadow: 0 12px 8px -2px rgb(238,238,238);
+    /*width: 33%;*/
+}
+
+.content .nav-big .bottom>div:before {
+    content: "";
+    width: 80%;
+    position: absolute;
+    border-bottom: 1px dashed  rgb(143,144,144);
+    top: -10%;
+}
+
+.content .nav-big .bottom img {
+    width: 22%;
+    /*height: 50px;*/
+}
+
+.content .nav-big .bottom span strong {
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: .3rem;
+    line-height: 3.4rem;
+    color: black;
+}
+
+.content .nav-big .bottom span {
+    color: rgb(132,132,132);
+    /*letter-spacing: .06rem;*/
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.content .news {
+    /*margin: 0 auto;*/
+}
+
+.content .news .left .top>span {
+    font-family: 微软雅黑;
+    font-size: 2rem;
+    color: rgb(52,103,248);
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+
+.content .news .left .top div span {
+    font-size: 1.4rem;
+    color: #404040;
+    letter-spacing: .2rem;
+}
+
+.content .news .left .top img {
+    width: 18px;
+}
+
+.content .news .left .top {
+    position: relative;
+    border-bottom: 1px dashed  rgb(143,144,144);
+    padding-bottom: 4px;
+}
+
+.content .news .left .left-image {
+    margin-top: 6px;
+}
+
+.content .news .left .left-image img{
+    width: 100%;
+    height: 42vh;
+}
+
+.content .news .left .list {
+    font-family: 宋体;
+    font-weight: bolder;
+    margin-top: 4px;
+}
+
+.content .news .left .list a span:nth-child(1) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    width: 80%;
+}
+
+.content .news .left .list a span {
+    color: black;
+    transition: all ease-in-out .3s;
+}
+
+.content .news .left .list a span:hover {
+    color: rgb(2,83,147);
+}
+
+.content .news .left .list a span:nth-child(2) {
+    color: rgb(143,144,144);
+}
+
+
+.content .news .right .top>span {
+    font-family: 微软雅黑;
+    font-size: 2rem;
+    color: rgb(61,77,155);
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+
+.content .news .right .top div span {
+    font-size: 1.4rem;
+    color: #404040;
+    letter-spacing: .2rem;
+}
+
+.content .news .right .top img {
+    width: 18px;
+}
+
+.content .news .right .top {
+    position: relative;
+    border-bottom: 1px dashed  rgb(143,144,144);
+    padding-bottom: 4px;
+}
+
+.content .news .right .right-image {
+    margin-top: 6px;
+}
+
+.content .news .right .right-image img{
+    width: 100%;
+    height: 28vh;
+}
+
+.content .news .right .list {
+    font-family: 宋体;
+    font-weight: bolder;
+    margin-top: 4px;
+}
+
+.content .news .right .list a span:nth-child(1) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content .news .right .list a span {
+    color: black;
+    transition: all ease-in-out .3s;
+}
+
+.content .news .right .list a span:hover {
+    color: rgb(2,83,147);
+}
+
+
+.content .news .school {
+    margin-top: 8vh;
+    background-color: rgb(232,241,248);
+    padding-bottom: 12px;
+}
+
+.content .news .school .top>span {
+    font-family: 微软雅黑;
+    font-size: 2rem;
+    color: rgb(61,77,155);
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+
+.content .news .school .top div span {
+    font-size: 1.4rem;
+    color: #404040;
+    letter-spacing: .2rem;
+}
+
+.content .news .school .top img {
+    width: 18px;
+}
+
+.content .news .school .top {
+    position: relative;
+    /*border-bottom: 1px dashed  rgb(143,144,144);*/
+    padding-bottom: 4px;
+    margin-top: 12px;
+}
+
+.content .news .school .school-content {
+    border: 1px dashed  rgb(143,144,144);
+    padding: 10px 6px 16px;
+}
+
+.content .news .school .school-content img {
+    width: 42%;
+    height: 28vh;
+}
+
+.content .news .school .school-content>div {
+    height: 28vh;
+    width: 54%;
+}
+
+.content .news .school .list {
+    font-family: 宋体;
+    margin-top: 4px;
+    width: 100%;
+    font-weight: bolder;
+}
+
+.content .news .school .list a span:nth-child(1) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    width: 80%;
+    /*font-weight: 521;*/
+    /*margin-right: 12vw;*/
+}
+
+.content .news .school .list a span {
+    color: black;
+    transition: all ease-in-out .3s;
+}
+
+.content .news .school .list a span:hover {
+    color: rgb(2,83,147);
+}
+
+.content .news .school .list a span:nth-child(2) {
+    color: rgb(143, 144, 144);
+}
+
+
+.content .propaganda {
+    width: 100%;
+    margin-top: 8vh;
+    background-color: rgb(213,227,246);
+    padding-top: 2vh;
+    padding-bottom: 6vh;
+}
+
+.content .propaganda .icon {
+    font-size: 2rem;
+    font-family: 微软雅黑;
+    color: rgb(53,87,133);
+    font-weight: bolder;
+    margin-left: 8vh;
+    margin-bottom: 4vh;
+}
+
+.content .propaganda img {
+    width: 12%;
+    margin: 0 2vw;
+    height: 22vh;
+}
+
+.content .special {
+    margin-top: 5vh;
+    width: 100%;
+    color: rgb(52,87,133);
+    font-size: 1.8rem;
+    letter-spacing: .2rem;
+    font-weight: bolder;
+}
+
+.content .web {
+    margin: 2vh 0;
+}
+
+.content .web a {
+    margin: 0 2vw;
+    position: relative;
+}
+
+.content .web img {
+    width: 12vw;
+    height: 14vh;
+}
+
+.content .web a div{
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: .8;
+    color: white;
+}

@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    height: 20vh;
+    background-color: rgb(53,87,133);
+    color: whitesmoke;
+}
+
+.footer .top {
+    font-size: 2.4rem;
+    font-weight: bolder;
+    font-family: 微软雅黑;
+    letter-spacing: 4rem;
+}
+
+.footer .bottom {
+    opacity: 1;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    font-family: 宋体;
+    letter-spacing: 2.8rem;
+    margin-top: 2vh;
+}

@@ -1,0 +1,77 @@
+.title {
+    width: 100%;
+    border-bottom: 1px solid rgb(238,238,238);
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-family: 微软雅黑;
+    position: relative;
+    /*margin-bottom: 20px;*/
+    background-color: white;
+}
+
+.title:after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 7.2%;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    transition: all ease-in-out .6s;
+}
+
+.title div>span:nth-child(2) {
+    margin-left: 10px;
+}
+
+.title div span {
+    letter-spacing: 0.05em;
+    color: rgb(153,153,153);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.title:hover:after {
+    width: 12%;
+
+}
+
+
+a {
+    text-decoration: none; /* 去除默认的下划线 */
+    outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
+    color: #000;	/* 去除默认的颜色和点击后变化的颜色 */
+}
+
+a:hover {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+a:link {
+    text-decoration: none; /* 去除默认的下划线 */
+}
+
+.content {
+    /*height: 100vh;*/
+    width: 100%;
+    background-image: url("../image/post/huzm.png");
+    background-size: 100% 68vh;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: rgb(244, 244, 244);
+}
+
+.content .container {
+    margin-top: 8vh;
+}
+
+.content .container .title1 {
+    font-size: 3.2rem;
+    color: rgb(32,57,141);
+    font-weight: bold;
+    letter-spacing: .4rem;
+    margin-bottom: 2vh;
+}
+
+.content .container .post {
+    margin-bottom: 8vh;
+}

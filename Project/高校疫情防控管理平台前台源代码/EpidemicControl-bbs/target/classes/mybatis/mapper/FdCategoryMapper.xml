@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.FdCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.FdCategory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="fd_category_id" jdbcType="INTEGER" property="fdCategoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="BaseResultMap" resultType="list">
+    select * from `fd_category`;
+  </select>
+
+  <select id="selectByCategoryId" resultMap="BaseResultMap">
+    select * from `fd_category` where fd_category_id=#{id};
+  </select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hut.kenny.mapper.UserHmMapper">
+    <resultMap id="BaseResultMap" type="com.hut.kenny.domain.entity.UserHm">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="uhm_id" jdbcType="INTEGER" property="uhmId" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="hm_id" jdbcType="INTEGER" property="hmId" />
+        <result column="uhm_count" jdbcType="INTEGER" property="uhmCount" />
+        <result column="uhm_answer" jdbcType="VARCHAR" property="uhmAnswer" />
+        <result column="uhm_date" jdbcType="TIMESTAMP" property="uhmDate" />
+    </resultMap>
+
+    <select id="selectCountByUserId" resultType="int">
+        SELECT COUNT(*) FROM (SELECT DISTINCT uhm_count FROM `user_hm` WHERE user_id=#{userId})a;
+    </select>
+
+    <insert id="insertUserHm" parameterType="list">
+        insert into `user_hm` values
+        <foreach collection="list" separator="," item="item">
+            (default, #{item.userId}, #{item.hmId}, #{item.uhmCount}, #{item.uhmAnswer}, default)
+        </foreach>
+    </insert>
+
+    <select id="selectAllMental" resultMap="BaseResultMap" parameterType="UserHm" resultType="list">
+        select * from user_hm
+        <trim prefix="where" prefixOverrides="and">
+            <if test="uhmDate != null">
+                and TO_DAYS(uhm_date) = TO_DAYS(#{uhmDate})
+            </if>
+        </trim>
+        GROUP BY uhm_date ORDER BY uhm_date desc
+    </select>
+
+    <select id="selectByUserIdAndUhmCount" resultMap="BaseResultMap" resultType="list">
+        select * from user_hm where user_id=#{userId} and uhm_count=#{uhmCount};
+    </select>
+</mapper>

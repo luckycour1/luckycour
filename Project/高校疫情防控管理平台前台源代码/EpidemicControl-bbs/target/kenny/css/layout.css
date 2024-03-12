@@ -1,0 +1,67 @@
+/************** 布局 ****************/
+/* 垂直居中 */
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 垂直两端分布 */
+.vertical-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 垂直两端分布 */
+.vertical-end-left {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+/* 水平居中 */
+.level-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 水平左右居中 */
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 顶部两端对齐 */
+.top-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* 顶部居中对齐 */
+.top-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 靠左居中 */
+.left-center {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.limit-one {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
